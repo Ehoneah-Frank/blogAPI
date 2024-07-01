@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import 'dotenv/config';
 import { dbConnection } from './config/db.js';
 import authRouter from './controllers/auth.js';
+import blogRouter from './controllers/blog.js';
 
 // Connect to database
 await mongoose.connect(process.env.MONGO_URL);
@@ -18,6 +19,7 @@ app.use(express.json());
 
 // routes
 app.use('/auth', authRouter);
+app.use('/blog', blogRouter);
 
 
 // Listen for incoming requests

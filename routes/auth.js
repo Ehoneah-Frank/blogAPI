@@ -4,10 +4,10 @@ import (authRouter)
 
 
 //  Create a router
-const authenticationRouter = Router();
+const authenticationRouter = express.Router();
 
 // Define routes
-authenticationRouter.post('/auth', authRouter);
+authenticationRouter.use('/auth', authRouter);
 
 // Export router
-export default authRouter;
+export default authenticationRouter;
