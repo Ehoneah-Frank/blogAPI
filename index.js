@@ -2,8 +2,8 @@ import express from 'express';
 import mongoose from "mongoose";
 import 'dotenv/config';
 import { dbConnection } from './config/db.js';
-import authRouter from './controllers/auth.js';
-import blogRouter from './controllers/blog.js';
+import blogRouter from './routes/blogRoute.js'
+import userRouter from './routes/userRoute.js';
 
 // Connect to database
 await mongoose.connect(process.env.MONGO_URL);
@@ -18,8 +18,8 @@ const app = express();
 app.use(express.json());
 
 // routes
-app.use('/auth', authRouter);
 app.use('/blog', blogRouter);
+app.use('/user', userRouter);
 
 
 // Listen for incoming requests

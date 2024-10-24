@@ -1,8 +1,11 @@
 import { Schema, model } from 'mongoose';
+import mongoose from 'mongoose';
+
 
 const blogSchema = new Schema({
     userId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
         required: true,
     },
     title: {
@@ -10,14 +13,14 @@ const blogSchema = new Schema({
         required: true,
         minlength: 5,
     },
-    description: {
+    content: {
         type: String,
         required: true,
-        minlength: 12,
+        minlength: 20,
     },
     photo: {
         type: String,
-        required: true,
+        required: false,
     },
     categories: {
         type: [String],
